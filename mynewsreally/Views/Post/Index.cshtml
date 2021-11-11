@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using mynewsreally.Areas.Identity.Data
+@inject SignInManager<mynewsreallyUser> SignInManager
+@inject UserManager<mynewsreallyUser> UserManager
+@model IEnumerable<mynewsreally.Models.Post>
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>mynews</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/js/bootstrap.bundle.min.js" rel="stylesheet" />
+    <link href="~/css/site.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <h1>news</h1>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="col" style=" height:35%">
+                <div class="card" style="width: 15rem;margin-bottom:5%;">
+                    <span class="img">
+                        <img src="@Html.DisplayFor(modelItem => item.Imagen)" class="card-img-top">
+                    </span>
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo))</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Categoria.Nombre)</p>
+                        <p class="card-text" style="white-space: normal; overflow: hidden; text-overflow: ellipsis;
+                            height: 4.8em; ">@Html.DisplayFor(modelItem => item.Resumen))</p> @Html.ActionLink("Seguir leyendo", "Post", "Post", new { id = item.PostID }, new { @class = "btn btn-link" })
+                            @if (SignInManager.IsSignedIn(User) && !User.IsInRole("User"))
+                            {
+                                <hr />
+                                @Html.ActionLink("Borrar", "Borrar", "Post", new { id = item.PostID }, new { @class = "btn btn-danger" })
+                                @Html.ActionLink("Editar", "Editar", "Post", new { id = item.PostID }, new { @class = "btn btn-success" })
+
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                    }
+                </div>
+
+    </div>
+
+
+</body>
+</html>

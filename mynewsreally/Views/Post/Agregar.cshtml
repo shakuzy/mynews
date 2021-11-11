@@ -1,0 +1,49 @@
+﻿@model mynewsreally.Models.Post
+@{
+    Layout = "_Layout";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.Categoriass;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar</title>
+</head>
+<body>
+    @using (Html.BeginForm("Nuevo", "Post"))
+    {
+        @Html.LabelFor(x => x.Imagen, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.EditorFor(x => x.Imagen, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(x => x.Imagen)<br />
+
+        @Html.LabelFor(x => x.Titulo, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.EditorFor(x => x.Titulo, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(x => x.Titulo)<br />
+
+        @Html.LabelFor(x => x.Resumen, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.EditorFor(x => x.Resumen, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(x => x.Resumen)<br />
+
+        @Html.LabelFor(x => x.Autor, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.EditorFor(x => x.Autor, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(x => x.Autor)<br />
+
+        @Html.LabelFor(x => x.Cuerpo, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.EditorFor(x => x.Cuerpo, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(x => x.Cuerpo)<br />
+
+        @Html.LabelFor(x => x.Fecha, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.EditorFor(x => x.Fecha, new { htmlAttributes = new { @class = "form-control" } })<br />
+        @Html.ValidationMessageFor(x => x.Fecha)<br />
+
+        @Html.LabelFor(x => x.Categoria, new { htmlAttributes = new { @class = "form-label" } })<br />
+        @Html.DropDownListFor(x => x.CategoriaID, items, "Selecciona una categoria", new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(x => x.Categoria)
+<br />
+        <input type="submit" value="Agregar" class="btn btn-primary btn-block" /><br />
+    }<br />
+</body>
+</html>

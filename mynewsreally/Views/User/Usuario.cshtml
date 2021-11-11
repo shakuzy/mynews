@@ -1,0 +1,32 @@
+﻿@model mynewsreally.Models.UserRole
+@{
+    ViewData["Title"] = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> Roles = (List<SelectListItem>)ViewBag.Roles;
+}
+
+<h1>Usuario - @Html.DisplayFor(model => model.UserName)</h1>
+
+@using (Html.BeginForm("Actualizar", "User"))
+{
+    @Html.HiddenFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.HiddenFor(model => model.RolName, new { htmlAttributes = new { @class = "form-control" } })
+ <p class="text-danger">@ViewBag.Mensaje</p>
+    <div>
+        @Html.LabelFor(model => model.UserName, new { htmlAttributes = new { @class = "control-label" } })
+        <div>
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.RoleId, new { htmlAttributes = new { @class = "control-label" } })
+        <div>
+            @Html.DropDownListFor(model => model.RoleId, Roles, "Selecciona un rol", new { @class = "form-control" })
+        </div>
+    </div><br />
+
+    <input type="submit" value="Editar" class="btn btn-success btn-block" /><br />
+}
+<br />
+@Html.ActionLink("Volver", "Index", "User", null,new { @class = "btn btn-danger btn-block"})

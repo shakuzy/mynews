@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using mynewsreally.Areas.Identity.Data
+@inject SignInManager<mynewsreallyUser> SignInManager
+@inject UserManager<mynewsreallyUser> UserManager
+@model mynewsreally.Models.Post
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Post</title>
+    <link href="/css/site.css" type="text/css" rel="stylesheet" />
+    <script src="~/js/myfunctions.js"></script>
+</head>
+<body>
+    <div>
+        <div>
+            <img src="@Html.DisplayFor(model=> model.Imagen)" class="card-img-top"/>
+        </div>
+        <br />
+        <h1>@Html.DisplayFor(model => model.Titulo)</h1>
+        <br />
+        <h6>@Html.DisplayFor(model => model.Autor) | @Html.DisplayFor(model => model.Fecha)</h6>
+        <p>@Html.Raw(Model.Cuerpo)</p>
+        <hr />
+
+
+        @if (ViewBag.Comentarios.Count != 0)
+        {
+            <h1>Comentarios</h1>
+            @if (SignInManager.IsSignedIn(User) && (User.IsInRole("SuperAdmin") || User.IsInRole("Admin")))
+            {
+                @Html.ActionLink("Borrar Todos Los Comentarios", "BorrarTodosLosComentarios", "Comentario", new { id = Model.PostID }, new { @class = "btn btn-danger", @style = "float: right;" })<br />
+                <hr />
+            }
+            @foreach (var item in ViewBag.Comentarios)
+            {
+                @if (SignInManager.IsSignedIn(User) && (User.IsInRole("SuperAdmin") || User.IsInRole("Admin") || item.Autor == UserManager.GetUserName(User)))
+                {
+                    @Html.ActionLink("Borrar", "Borrar", "Comentario", new { id = item.ComentarioID }, new { @class = "btn btn-danger", @style = "float: right;" })
+                }<div class="card border-light mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Autor</h5>
+                            <p class="card-text">@item.Comentario1</p>
+                        </div>
+                    </div>
+                    <hr />
+                }
+            }
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <h1>Agregue un comentario</h1>
+                <div class="col-md-6">
+                    @using (Html.BeginForm("Agregar", "Comentario"))
+                    {
+                        <label class="form-label">Autor </label>
+
+                        <input type="text" name="Autor" class="form-control" readonly value="@UserManager.GetUserName(User)"/><br />
+
+                        <label class="form-label">Comentario </label>
+                        <input type="text" name="Comentario1" class="form-control" /><br />
+
+                        @Html.HiddenFor(model => model.PostID, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <input type="submit" value="Agregar comentario" class="btn btn-primary" />
+                    }
+                </div>
+            }
+            else
+            {
+                <h1>Para agregar un comentario, tiene que registrarse :)</h1>
+            }
+
+        </div>
+</body>
+</html>
