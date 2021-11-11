@@ -12,27 +12,33 @@ Bueno ahora vamos con las pantallas...
 
 En este primer video podemos ver como lo miraran la mayoría de las personas que no esten registradas, que solamente podrán visualizar las noticias mediante la pantalla Home Y también filtrarlos por categoría, pero no podrán comentar las publicaciones.
 
-https://user-images.githubusercontent.com/56520398/141230566-c3599c8e-ea73-4d1d-86a2-0f9fe9bb01a1.mp4
+https://user-images.githubusercontent.com/56520398/141342761-415bc5ee-9ad0-4dbd-9bec-5f5ced8b6ddd.mp4
+
 
 Acá se muestra como registrarse poniendo en el sistema, el nombre de usuario, el mail y la contraseña confirmada para poder comentar
 
-https://user-images.githubusercontent.com/56520398/141230675-cd9f6492-9847-4b24-a4fc-183356535676.mp4
+https://user-images.githubusercontent.com/56520398/141342814-74ec6aa2-2c26-4118-978a-f1b396602579.mp4
+
 
 En el siguiente video sé podra ver la pantalla que va a ver el administrador, el cual este puede agregar post, editarlo y borrarlo. También tiene la posibilidad de borrar los comentarios que crea conveniente y también borrar todos los comentarios de una sola vez.
 
-https://user-images.githubusercontent.com/56520398/141230960-3ada4129-a216-4560-8787-5d82e7b4891a.mp4
+https://user-images.githubusercontent.com/56520398/141342878-402bf416-0f5a-4257-84a0-1ba19478542b.mp4
+
 
 En esta pantalla se puede ver todos los datos que el sistema pide para agregar una noticia: Imagen, Titulo, Resumen, Cuerpo, Fecha, Categoría, Autor
 
-https://user-images.githubusercontent.com/56520398/141231038-32e44fad-baa7-4c0e-9b62-b75a5b2225e6.mp4
+https://user-images.githubusercontent.com/56520398/141342960-9954a71b-b6f0-43dd-8f0d-69386fc57de1.mp4
+
 
 Luego se muestra como quedaría en el sistema una vez agregado
 
-https://user-images.githubusercontent.com/56520398/141231103-999db1c1-1af4-425f-b0bf-9601dba65dd5.mp4
+https://user-images.githubusercontent.com/56520398/141342996-f84749fe-682b-4e95-8207-e10203b97d39.mp4
+
 
 En este ultimo video se muestra desde la perspectiva del SuperAdmin que tiene las mismas posibilidades que el Admin, pero ademas cuenta con la posibilidad de manipular los usuarios del sistema, Como por ejemplo cambiar su Username y también su rol. Como también poder eliminarlo completamente
 
-https://user-images.githubusercontent.com/56520398/141231247-ae704338-4b39-4e19-9de0-48537babaa34.mp4
+https://user-images.githubusercontent.com/56520398/141343050-cd7432b6-f1fe-4aad-b8e0-3bcad16d745f.mp4
+
 
 Bibliografía:
 
